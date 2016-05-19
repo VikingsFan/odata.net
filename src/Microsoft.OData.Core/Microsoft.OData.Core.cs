@@ -680,6 +680,7 @@ namespace Microsoft.OData.Core {
         internal const string UriQueryPathParser_RequestUriDoesNotHaveTheCorrectBaseUri = "UriQueryPathParser_RequestUriDoesNotHaveTheCorrectBaseUri";
         internal const string UriQueryPathParser_SyntaxError = "UriQueryPathParser_SyntaxError";
         internal const string UriQueryPathParser_TooManySegments = "UriQueryPathParser_TooManySegments";
+        internal const string UriUtils_DateTimeOffsetInvalidFormat = "UriUtils_DateTimeOffsetInvalidFormat";
         internal const string SelectionItemBinder_NonNavigationPathToken = "SelectionItemBinder_NonNavigationPathToken";
         internal const string MetadataBinder_UnsupportedQueryTokenKind = "MetadataBinder_UnsupportedQueryTokenKind";
         internal const string MetadataBinder_PropertyNotDeclared = "MetadataBinder_PropertyNotDeclared";
@@ -714,9 +715,9 @@ namespace Microsoft.OData.Core {
         internal const string MetadataBinder_CollectionOpenPropertiesNotSupportedInThisRelease = "MetadataBinder_CollectionOpenPropertiesNotSupportedInThisRelease";
         internal const string MetadataBinder_IllegalSegmentType = "MetadataBinder_IllegalSegmentType";
         internal const string MetadataBinder_QueryOptionNotApplicable = "MetadataBinder_QueryOptionNotApplicable";
-        internal const string ApplyBinder_AggregateStatementIncompatibleTypeForVerb = "ApplyBinder_AggregateStatementIncompatibleTypeForVerb";
-        internal const string ApplyBinder_UnsupportedAggregateVerb = "ApplyBinder_UnsupportedAggregateVerb";
-        internal const string ApplyBinder_AggregateStatementNotSingleValue = "ApplyBinder_AggregateStatementNotSingleValue";
+        internal const string ApplyBinder_AggregateExpressionIncompatibleTypeForMethod = "ApplyBinder_AggregateExpressionIncompatibleTypeForMethod";
+        internal const string ApplyBinder_UnsupportedAggregateMethod = "ApplyBinder_UnsupportedAggregateMethod";
+        internal const string ApplyBinder_AggregateExpressionNotSingleValue = "ApplyBinder_AggregateExpressionNotSingleValue";
         internal const string ApplyBinder_GroupByPropertyNotPropertyAccessValue = "ApplyBinder_GroupByPropertyNotPropertyAccessValue";
         internal const string ApplyBinder_UnsupportedType = "ApplyBinder_UnsupportedType";
         internal const string ApplyBinder_UnsupportedGroupByChild = "ApplyBinder_UnsupportedGroupByChild";
@@ -780,7 +781,7 @@ namespace Microsoft.OData.Core {
         internal const string PathParser_EntityReferenceNotSupported = "PathParser_EntityReferenceNotSupported";
         internal const string PathParser_CannotUseValueOnCollection = "PathParser_CannotUseValueOnCollection";
         internal const string PathParser_TypeMustBeRelatedToSet = "PathParser_TypeMustBeRelatedToSet";
-        internal const string PathParser_TypeCastOnlyAllowedAfterEntityCollection = "PathParser_TypeCastOnlyAllowedAfterEntityCollection";
+        internal const string PathParser_TypeCastOnlyAllowedAfterStructuralCollection = "PathParser_TypeCastOnlyAllowedAfterStructuralCollection";
         internal const string ODataFeed_MustNotContainBothNextPageLinkAndDeltaLink = "ODataFeed_MustNotContainBothNextPageLinkAndDeltaLink";
         internal const string ODataExpandPath_OnlyLastSegmentMustBeNavigationProperty = "ODataExpandPath_OnlyLastSegmentMustBeNavigationProperty";
         internal const string ODataExpandPath_InvalidExpandPathSegment = "ODataExpandPath_InvalidExpandPathSegment";
@@ -843,6 +844,12 @@ namespace Microsoft.OData.Core {
         internal const string ExpressionLexer_InvalidEscapeSequence = "ExpressionLexer_InvalidEscapeSequence";
         internal const string UriQueryExpressionParser_UnrecognizedLiteral = "UriQueryExpressionParser_UnrecognizedLiteral";
         internal const string UriQueryExpressionParser_UnrecognizedLiteralWithReason = "UriQueryExpressionParser_UnrecognizedLiteralWithReason";
+        internal const string UriPrimitiveTypeParsers_FailedToParseTextToPrimitiveValue = "UriPrimitiveTypeParsers_FailedToParseTextToPrimitiveValue";
+        internal const string UriPrimitiveTypeParsers_FailedToParseStringToGeography = "UriPrimitiveTypeParsers_FailedToParseStringToGeography";
+        internal const string UriCustomTypeParsers_AddCustomUriTypeParserAlreadyExists = "UriCustomTypeParsers_AddCustomUriTypeParserAlreadyExists";
+        internal const string UriCustomTypeParsers_AddCustomUriTypeParserEdmTypeExists = "UriCustomTypeParsers_AddCustomUriTypeParserEdmTypeExists";
+        internal const string UriParserHelper_InvalidPrefixLiteral = "UriParserHelper_InvalidPrefixLiteral";
+        internal const string CustomUriTypePrefixLiterals_AddCustomUriTypePrefixLiteralAlreadyExists = "CustomUriTypePrefixLiterals_AddCustomUriTypePrefixLiteralAlreadyExists";
         internal const string ValueParser_InvalidDuration = "ValueParser_InvalidDuration";
         internal const string PlatformHelper_DateTimeOffsetMustContainTimeZone = "PlatformHelper_DateTimeOffsetMustContainTimeZone";
         internal const string JsonReader_UnexpectedComma = "JsonReader_UnexpectedComma";
@@ -862,6 +869,7 @@ namespace Microsoft.OData.Core {
         internal const string JsonReaderExtensions_CannotReadValueAsString = "JsonReaderExtensions_CannotReadValueAsString";
         internal const string JsonReaderExtensions_CannotReadValueAsDouble = "JsonReaderExtensions_CannotReadValueAsDouble";
         internal const string JsonReaderExtensions_UnexpectedInstanceAnnotationName = "JsonReaderExtensions_UnexpectedInstanceAnnotationName";
+        internal const string JsonReaderExtensions_ErrorContext = "JsonReaderExtensions_ErrorContext";
 
         static TextRes loader = null;
         ResourceManager resources;

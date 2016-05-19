@@ -45,6 +45,12 @@ namespace Microsoft.OData.Core
         /// <summary>The type resolver to use.</summary>
         private readonly EdmTypeResolver edmTypeResolver;
 
+        /// <summary>The payload value converter to use.</summary>
+        private readonly ODataPayloadValueConverter payloadValueConverter;
+
+        /// <summary>The writer validator used in writing.</summary>
+        private readonly IWriterValidator writerValidator;
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -72,6 +78,8 @@ namespace Microsoft.OData.Core
             this.model = model ?? EdmCoreModel.Instance;
             this.urlResolver = urlResolver;
             this.edmTypeResolver = EdmTypeWriterResolver.Instance;
+            this.payloadValueConverter = this.model.GetPayloadValueConverter();
+            this.writerValidator = ValidatorFactory.CreateWriterValidator(messageWriterSettings.EnableFullValidation);
         }
 
         /// <summary>
@@ -138,6 +146,28 @@ namespace Microsoft.OData.Core
             get
             {
                 return this.edmTypeResolver;
+            }
+        }
+
+        /// <summary>
+        /// The payload value converter to use
+        /// </summary>
+        internal ODataPayloadValueConverter PayloadValueConverter
+        {
+            get
+            {
+                return this.payloadValueConverter;
+            }
+        }
+
+        /// <summary>
+        /// The writer validator used in writing.
+        /// </summary>
+        internal IWriterValidator WriterValidator
+        {
+            get
+            {
+                return this.writerValidator;
             }
         }
 

@@ -4465,10 +4465,8 @@ namespace Microsoft.OData.Core {
         /// <summary>
         /// A string like "A raw value was not provided for an instance of ODataUntypedValue."
         /// </summary>
-        internal static string ODataJsonLightValueSerializer_MissingRawValueOnUntyped
-        {
-            get
-            {
+        internal static string ODataJsonLightValueSerializer_MissingRawValueOnUntyped {
+            get {
                 return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ODataJsonLightValueSerializer_MissingRawValueOnUntyped);
             }
         }
@@ -4650,7 +4648,7 @@ namespace Microsoft.OData.Core {
         }
 
         /// <summary>
-        /// A string like "'as' expected at position {0} in '{1}'."
+        /// A string like "'with' expected at position {0} in '{1}'."
         /// </summary>
         internal static string UriQueryExpressionParser_WithExpected(object p0, object p1) {
             return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriQueryExpressionParser_WithExpected, p0, p1);
@@ -4700,6 +4698,13 @@ namespace Microsoft.OData.Core {
             get {
                 return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriQueryPathParser_TooManySegments);
             }
+        }
+
+        /// <summary>
+        /// A string like "The DateTimeOffset text '{0}' should be in format 'yyyy-mm-ddThh:mm:ss('.'s+)?(zzzzzz)?' and each field value is within valid range."
+        /// </summary>
+        internal static string UriUtils_DateTimeOffsetInvalidFormat(object p0) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriUtils_DateTimeOffsetInvalidFormat, p0);
         }
 
         /// <summary>
@@ -4963,22 +4968,22 @@ namespace Microsoft.OData.Core {
         /// <summary>
         /// A string like "$apply/aggregate expression '{0}' operation does not support value type '{1}'."
         /// </summary>
-        internal static string ApplyBinder_AggregateStatementIncompatibleTypeForVerb(object p0, object p1) {
-            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ApplyBinder_AggregateStatementIncompatibleTypeForVerb, p0, p1);
+        internal static string ApplyBinder_AggregateExpressionIncompatibleTypeForMethod(object p0, object p1) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ApplyBinder_AggregateExpressionIncompatibleTypeForMethod, p0, p1);
         }
 
         /// <summary>
-        /// A string like "$apply/aggregate does not support verb '{0}'."
+        /// A string like "$apply/aggregate does not support method '{0}'."
         /// </summary>
-        internal static string ApplyBinder_UnsupportedAggregateVerb(object p0) {
-            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ApplyBinder_UnsupportedAggregateVerb, p0);
+        internal static string ApplyBinder_UnsupportedAggregateMethod(object p0) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ApplyBinder_UnsupportedAggregateMethod, p0);
         }
 
         /// <summary>
         /// A string like "$apply/aggregate expression '{0}' must evaluate to a single value."
         /// </summary>
-        internal static string ApplyBinder_AggregateStatementNotSingleValue(object p0) {
-            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ApplyBinder_AggregateStatementNotSingleValue, p0);
+        internal static string ApplyBinder_AggregateExpressionNotSingleValue(object p0) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ApplyBinder_AggregateExpressionNotSingleValue, p0);
         }
 
         /// <summary>
@@ -5264,34 +5269,30 @@ namespace Microsoft.OData.Core {
         }
 
         /// <summary>
-        /// A string like "Term '{0}' is not valid in a $expand expression, as only level option is allowed when expand navigation property is star."
+        /// A string like "Term '{0}' is not valid in a $expand expression, as only $level option is allowed when the expanded navigation property is star."
         /// </summary>
-        internal static string UriExpandParser_TermIsNotValidForStar(object p0)
-        {
+        internal static string UriExpandParser_TermIsNotValidForStar(object p0) {
             return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriExpandParser_TermIsNotValidForStar, p0);
         }
 
         /// <summary>
-        /// A string like "Term '{0}' is not valid in a $expand expression, no option is allowed when expand navigation property is */$ref."
+        /// A string like "Term '{0}' is not valid in a $expand expression, no option is allowed when the expanded navigation property is */$ref."
         /// </summary>
-        internal static string UriExpandParser_TermIsNotValidForStarRef(object p0)
-        {
+        internal static string UriExpandParser_TermIsNotValidForStarRef(object p0) {
             return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriExpandParser_TermIsNotValidForStarRef, p0);
         }
 
         /// <summary>
-        /// A string like "Can not get parent entity type for Term '{0}' to auto populate all navigation properties."
+        /// A string like "Cannot get parent entity type for term '{0}' to auto populate all navigation properties."
         /// </summary>
-        internal static string UriExpandParser_ParentEntityIsNull(object p0)
-        {
+        internal static string UriExpandParser_ParentEntityIsNull(object p0) {
             return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriExpandParser_ParentEntityIsNull, p0);
         }
 
         /// <summary>
         /// A string like "Term '{0}' is not valid in a $expand expression as multiple stars are not allowed."
         /// </summary>
-        internal static string UriExpandParser_TermWithMultipleStarNotAllowed(object p0)
-        {
+        internal static string UriExpandParser_TermWithMultipleStarNotAllowed(object p0) {
             return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriExpandParser_TermWithMultipleStarNotAllowed, p0);
         }
 
@@ -5465,10 +5466,10 @@ namespace Microsoft.OData.Core {
         }
 
         /// <summary>
-        /// A string like "Type cast segment '{0}' after a collection which is not of entity type is not allowed."
+        /// A string like "Type cast segment '{0}' after a collection which is not of entity or complex type is not allowed."
         /// </summary>
-        internal static string PathParser_TypeCastOnlyAllowedAfterEntityCollection(object p0) {
-            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.PathParser_TypeCastOnlyAllowedAfterEntityCollection, p0);
+        internal static string PathParser_TypeCastOnlyAllowedAfterStructuralCollection(object p0) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.PathParser_TypeCastOnlyAllowedAfterStructuralCollection, p0);
         }
 
         /// <summary>
@@ -5838,10 +5839,9 @@ namespace Microsoft.OData.Core {
         }
 
         /// <summary>
-        /// A string like "Only $ref is allowed with star in expand option."
+        /// A string like "Only $ref is allowed with star in $expand option."
         /// </summary>
-        internal static string ExpressionToken_OnlyRefAllowWithStarInExpand
-        {          
+        internal static string ExpressionToken_OnlyRefAllowWithStarInExpand {
             get {
                 return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ExpressionToken_OnlyRefAllowWithStarInExpand);
             }
@@ -5850,10 +5850,8 @@ namespace Microsoft.OData.Core {
         /// <summary>
         /// A string like "No property is allowed after $ref segment."
         /// </summary>
-        internal static string ExpressionToken_NoPropAllowedAfterRef
-        {
-            get
-            {
+        internal static string ExpressionToken_NoPropAllowedAfterRef {
+            get {
                 return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ExpressionToken_NoPropAllowedAfterRef);
             }
         }
@@ -5861,10 +5859,8 @@ namespace Microsoft.OData.Core {
         /// <summary>
         /// A string like "No segment is allowed before star in $expand."
         /// </summary>
-        internal static string ExpressionToken_NoSegmentAllowedBeforeStarInExpand
-        {
-            get
-            {
+        internal static string ExpressionToken_NoSegmentAllowedBeforeStarInExpand {
+            get {
                 return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.ExpressionToken_NoSegmentAllowedBeforeStarInExpand);
             }
         }
@@ -5946,6 +5942,52 @@ namespace Microsoft.OData.Core {
         /// </summary>
         internal static string UriQueryExpressionParser_UnrecognizedLiteralWithReason(object p0, object p1, object p2, object p3, object p4) {
             return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriQueryExpressionParser_UnrecognizedLiteralWithReason, p0, p1, p2, p3, p4);
+        }
+
+        /// <summary>
+        /// A string like "Failed to parse '{0}' of Edm type '{1}' to primitive type."
+        /// </summary>
+        internal static string UriPrimitiveTypeParsers_FailedToParseTextToPrimitiveValue(object p0, object p1) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriPrimitiveTypeParsers_FailedToParseTextToPrimitiveValue, p0, p1);
+        }
+
+        /// <summary>
+        /// A string like "Failed to parse string to Geography."
+        /// </summary>
+        internal static string UriPrimitiveTypeParsers_FailedToParseStringToGeography {
+            get {
+                return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriPrimitiveTypeParsers_FailedToParseStringToGeography);
+            }
+        }
+
+        /// <summary>
+        /// A string like "The given uri custom type parser already exists."
+        /// </summary>
+        internal static string UriCustomTypeParsers_AddCustomUriTypeParserAlreadyExists {
+            get {
+                return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriCustomTypeParsers_AddCustomUriTypeParserAlreadyExists);
+            }
+        }
+
+        /// <summary>
+        /// A string like "An existing custom UriTypeParser is already registered to the given EdmTypeReference '{0}'."
+        /// </summary>
+        internal static string UriCustomTypeParsers_AddCustomUriTypeParserEdmTypeExists(object p0) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriCustomTypeParsers_AddCustomUriTypeParserEdmTypeExists, p0);
+        }
+
+        /// <summary>
+        /// A string like "The given type prefix literal name '{0}' must contain letters or '.' only."
+        /// </summary>
+        internal static string UriParserHelper_InvalidPrefixLiteral(object p0) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.UriParserHelper_InvalidPrefixLiteral, p0);
+        }
+
+        /// <summary>
+        /// A string like "The given type literal prefix '{0}' already exists as a custom uri type literal prefix."
+        /// </summary>
+        internal static string CustomUriTypePrefixLiterals_AddCustomUriTypePrefixLiteralAlreadyExists(object p0) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.CustomUriTypePrefixLiterals_AddCustomUriTypePrefixLiteralAlreadyExists, p0);
         }
 
         /// <summary>
@@ -6087,6 +6129,13 @@ namespace Microsoft.OData.Core {
         /// </summary>
         internal static string JsonReaderExtensions_UnexpectedInstanceAnnotationName(object p0) {
             return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.JsonReaderExtensions_UnexpectedInstanceAnnotationName, p0);
+        }
+
+        /// <summary>
+        /// A string like "{0} Error found near: {1} &lt;---"
+        /// </summary>
+        internal static string JsonReaderExtensions_ErrorContext(object p0, object p1) {
+            return Microsoft.OData.Core.TextRes.GetString(Microsoft.OData.Core.TextRes.JsonReaderExtensions_ErrorContext, p0, p1);
         }
 
     }

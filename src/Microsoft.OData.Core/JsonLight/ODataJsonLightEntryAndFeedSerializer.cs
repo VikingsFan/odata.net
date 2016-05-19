@@ -193,14 +193,14 @@ namespace Microsoft.OData.Core.JsonLight
 
             // write "odata.actions" metadata
             IEnumerable<ODataAction> actions = entry.Actions;
-            if (actions != null)
+            if (actions != null && actions.Any())
             {
                 this.WriteOperations(actions.Cast<ODataOperation>(), /*isAction*/ true);
             }
 
             // write "odata.functions" metadata
             IEnumerable<ODataFunction> functions = entry.Functions;
-            if (functions != null)
+            if (functions != null && functions.Any())
             {
                 this.WriteOperations(functions.Cast<ODataOperation>(), /*isAction*/ false);
             }
@@ -258,7 +258,7 @@ namespace Microsoft.OData.Core.JsonLight
             {
                 // We need to validate here to ensure that the metadata is not null, otherwise call to the method 'UriToString' will throw.
                 ValidationUtils.ValidateOperationNotNull(o, isAction);
-                WriterValidationUtils.ValidateCanWriteOperation(o, this.JsonLightOutputContext.WritingResponse);
+                this.WriterValidator.ValidateCanWriteOperation(o, this.JsonLightOutputContext.WritingResponse);
                 ODataJsonLightValidationUtils.ValidateOperation(this.MetadataDocumentBaseUri, o);
                 return this.GetOperationMetadataString(o);
             });

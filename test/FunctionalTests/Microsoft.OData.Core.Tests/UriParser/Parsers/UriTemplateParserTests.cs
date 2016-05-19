@@ -124,6 +124,39 @@ namespace Microsoft.OData.Core.Tests.UriParser.Parsers
             keys[3].Key.Should().Be("Upgraded");
             keys[3].Value.As<UriTemplateExpression>().ShouldBeEquivalentTo(new UriTemplateExpression { LiteralText = "{UPGRADE}", ExpectedType = keyTypes[3].Type });
         }
+
+        [Fact]
+        public void ParseEnumKeyTemplateWithTemplateParser()
+        {
+            var uriParser = new ODataUriParser(HardCodedTestModel.TestModel, new Uri("Shapes({enumKey})", UriKind.Relative))
+            {
+                EnableUriTemplateParsing = true
+            };
+
+            var path = uriParser.ParsePath();
+
+            var keySegment = path.LastSegment.As<KeySegment>();
+            KeyValuePair<string, object> keypair = keySegment.Keys.Single();
+            keypair.Key.Should().Be("Color");
+
+            keypair.Value.As<UriTemplateExpression>().ShouldBeEquivalentTo(new UriTemplateExpression { LiteralText = "{enumKey}", ExpectedType = keySegment.EdmType.As<IEdmEntityType>().DeclaredKey.Single().Type });
+        }
+
+        [Fact]
+        public void ParseEnumKeyTemplateAsSegmentWithTemplateParser()
+        {
+            var uriParser = new ODataUriParser(HardCodedTestModel.TestModel, new Uri("http://host"), new Uri("http://host/Shapes/{enumKey}"))
+            {
+                EnableUriTemplateParsing = true,
+                UrlConventions = ODataUrlConventions.KeyAsSegment
+            };
+
+            var path = uriParser.ParsePath();
+            var keySegment = path.LastSegment.As<KeySegment>();
+            KeyValuePair<string, object> keypair = keySegment.Keys.Single();
+            keypair.Key.Should().Be("Color");
+            keypair.Value.As<UriTemplateExpression>().ShouldBeEquivalentTo(new UriTemplateExpression { LiteralText = "{enumKey}", ExpectedType = keySegment.EdmType.As<IEdmEntityType>().DeclaredKey.Single().Type });
+        }
         #endregion
 
         #region Parameter template tests
@@ -160,7 +193,7 @@ namespace Microsoft.OData.Core.Tests.UriParser.Parsers
         {
             var uriParser = new ODataUriParser(HardCodedTestModel.TestModel, new Uri("http://host"), new Uri("http://host/People(1)/Fully.Qualified.Namespace.HasHat(onCat={why555})"));
             Action action = () => uriParser.ParsePath();
-            action.ShouldThrow<ODataException>().WithMessage(Strings.JsonReader_MissingColon("why555"));
+            action.ShouldThrow<ODataException>().Match(e => e.Message.StartsWith(Strings.JsonReader_MissingColon("why555")));
         }
 
         [Fact]
